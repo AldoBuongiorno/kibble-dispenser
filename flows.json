@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "0a38d607daa3c654",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "d5d6e2eeb1b0369d",
         "type": "mqtt-broker",
         "name": "MyMosquito",
@@ -375,17 +383,50 @@
         "wires": []
     },
     {
-        "id": "76a42cb1b9de96ba",
-        "type": "catch",
-        "z": "c2efbb9d6f4ed7fd",
+        "id": "39c7f1c3b8daf9ee",
+        "type": "ui_gauge",
+        "z": "0a38d607daa3c654",
         "name": "",
-        "scope": null,
-        "uncaught": false,
-        "x": 460,
-        "y": 380,
+        "group": "594e2b943ae5f19a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Level ",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#1dd760"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 530,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "737e632267198ac8",
+        "type": "mqtt in",
+        "z": "0a38d607daa3c654",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 260,
         "wires": [
             [
-                "4f7bd3b951e82246"
+                "39c7f1c3b8daf9ee"
             ]
         ]
     }
