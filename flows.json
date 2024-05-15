@@ -388,5 +388,17 @@
                 "4f7bd3b951e82246"
             ]
         ]
+    },
+    {
+        "id": "5eed3d116120ba90",
+        "type": "status",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "scope": null,
+        "x": 500,
+        "y": 280,
+        "wires": [
+            []
+        ]
     }
 ]
