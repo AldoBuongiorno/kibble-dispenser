@@ -19,7 +19,7 @@
         "id": "d5d6e2eeb1b0369d",
         "type": "mqtt-broker",
         "name": "MyMosquito",
-        "broker": "172.19.0.3",
+        "broker": "test.mosquitto.org",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -63,7 +63,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -153,7 +154,7 @@
     {
         "id": "594e2b943ae5f19a",
         "type": "ui_group",
-        "name": "Dashboard1",
+        "name": "Capacità",
         "tab": "ff891277f53e0293",
         "order": 1,
         "disp": true,
@@ -162,35 +163,293 @@
         "className": ""
     },
     {
-        "id": "dd4510ffbb1bdb0a",
+        "id": "291f0f0b819b7cc6",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Eroga croccantini",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Il cane ha mangiato",
+        "payloadType": "str",
+        "topic": "unisa/IoT/gruppo07/pranzo_animale",
+        "topicType": "msg",
+        "x": 1030,
+        "y": 480,
+        "wires": [
+            [
+                "fd1979bf6e1e7882"
+            ]
+        ]
+    },
+    {
+        "id": "5d7b780d1325102e",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/pienezza_dispenser",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "d5d6e2eeb1b0369d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "45a5313cb016fabd",
+                "c47c8dc737b987fb"
+            ]
+        ]
+    },
+    {
+        "id": "a190e63773dc3ed0",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/distanza_animale",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d5d6e2eeb1b0369d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "de92f7fc57aac544"
+            ]
+        ]
+    },
+    {
+        "id": "8a2f2c3713c54da3",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/pranzo_animale",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d5d6e2eeb1b0369d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "30f75955162f0477"
+            ]
+        ]
+    },
+    {
+        "id": "fa2dc71f77bfc4e6",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/cena_animale",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d5d6e2eeb1b0369d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 500,
+        "y": 720,
+        "wires": [
+            [
+                "cf926253dda0a884"
+            ]
+        ]
+    },
+    {
+        "id": "45a5313cb016fabd",
         "type": "ui_gauge",
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 1,
+        "order": 5,
         "width": 0,
         "height": 0,
         "gtype": "gage",
-        "title": "Level ",
+        "title": "Percentuale di pienezza del dispeser",
         "label": "%",
-        "format": "{{value}}",
+        "format": "{{msg.payload.percentage}}",
         "min": 0,
         "max": "100",
         "colors": [
-            "#ca3838",
-            "#e6e600",
-            "#1dd760"
+            "#ff0000",
+            "#fff700",
+            "#4dff00"
         ],
-        "seg1": "",
-        "seg2": "",
+        "seg1": "20",
+        "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 150,
-        "y": 120,
+        "x": 1190,
+        "y": 360,
         "wires": []
     },
     {
-        "id": "6028b375a4b87050",
+        "id": "de92f7fc57aac544",
+        "type": "ui_toast",
+        "z": "c2efbb9d6f4ed7fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "DISMISS",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Il cane ha fame.",
+        "x": 800,
+        "y": 480,
+        "wires": [
+            [
+                "291f0f0b819b7cc6"
+            ]
+        ]
+    },
+    {
+        "id": "30f75955162f0477",
+        "type": "ui_toast",
+        "z": "c2efbb9d6f4ed7fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "DISMISS",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Il cane ha pranzato.",
+        "x": 890,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf926253dda0a884",
+        "type": "ui_toast",
+        "z": "c2efbb9d6f4ed7fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "DISMISS",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "Il cane ha cenato.",
+        "x": 890,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd1979bf6e1e7882",
+        "type": "mqtt out",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d5d6e2eeb1b0369d",
+        "x": 1230,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8a57b3c4184cfb9a",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Aggiungere reset",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "c47c8dc737b987fb",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Aggiungere notifica in base alla pienezza del dispnser",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.percentage",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "093f02624fc93622",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Log time eating",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1140,
+        "y": 560,
+        "wires": [
+            [
+                "072dd270e899cd38"
+            ]
+        ]
+    },
+    {
+        "id": "072dd270e899cd38",
         "type": "ui_chart",
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
@@ -198,7 +457,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "label": "Treat Chart",
+        "label": "Shows eating",
         "chartType": "line",
         "legend": "false",
         "xformat": "HH:mm:ss",
@@ -227,207 +486,10 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 170,
-        "y": 280,
+        "x": 1340,
+        "y": 560,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "291f0f0b819b7cc6",
-        "type": "ui_button",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Give Treat",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 170,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e5be465072f5b0d9",
-        "type": "ui_button",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Treat Log",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 160,
-        "y": 320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4f7bd3b951e82246",
-        "type": "ui_dropdown",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "label": "Stop Treat For",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "594e2b943ae5f19a",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "1 minute",
-                "value": 60,
-                "type": "num"
-            },
-            {
-                "label": "5 minute",
-                "value": 300,
-                "type": "num"
-            },
-            {
-                "label": "30 minute",
-                "value": 900,
-                "type": "num"
-            },
-            {
-                "label": "",
-                "value": "",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 180,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "83423254d62b9f7b",
-        "type": "ui_switch",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "label": "Stop Treat",
-        "tooltip": "",
-        "group": "594e2b943ae5f19a",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 170,
-        "y": 180,
-        "wires": [
-            [
-                "38c11f03c38657ba"
-            ]
-        ]
-    },
-    {
-        "id": "38c11f03c38657ba",
-        "type": "mqtt out",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "topic": "",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "x": 610,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "39c7f1c3b8daf9ee",
-        "type": "ui_gauge",
-        "z": "0a38d607daa3c654",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Level ",
-        "label": "%",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ca3838",
-            "#e6e600",
-            "#1dd760"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 530,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "737e632267198ac8",
-        "type": "mqtt in",
-        "z": "0a38d607daa3c654",
-        "name": "",
-        "topic": "",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 250,
-        "y": 260,
-        "wires": [
-            [
-                "39c7f1c3b8daf9ee"
-            ]
         ]
     }
 ]
