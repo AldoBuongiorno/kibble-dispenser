@@ -16,37 +16,6 @@
         "env": []
     },
     {
-        "id": "d5d6e2eeb1b0369d",
-        "type": "mqtt-broker",
-        "name": "MyMosquito",
-        "broker": "test.mosquitto.org",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closeRetain": "false",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
         "id": "ff891277f53e0293",
         "type": "ui_tab",
         "name": "Home",
@@ -163,32 +132,35 @@
         "className": ""
     },
     {
-        "id": "291f0f0b819b7cc6",
-        "type": "ui_button",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Eroga croccantini",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "Il cane ha mangiato",
-        "payloadType": "str",
-        "topic": "unisa/IoT/gruppo07/pranzo_animale",
-        "topicType": "msg",
-        "x": 1030,
-        "y": 480,
-        "wires": [
-            [
-                "fd1979bf6e1e7882"
-            ]
-        ]
+        "id": "efc7c89dfa0e5254",
+        "type": "mqtt-broker",
+        "name": "MyMosquitto",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "5d7b780d1325102e",
@@ -198,7 +170,7 @@
         "topic": "unisa/IoT/gruppo07/pienezza_dispenser",
         "qos": "0",
         "datatype": "auto-detect",
-        "broker": "d5d6e2eeb1b0369d",
+        "broker": "efc7c89dfa0e5254",
         "nl": false,
         "rap": true,
         "rh": 0,
@@ -213,44 +185,24 @@
         ]
     },
     {
-        "id": "a190e63773dc3ed0",
-        "type": "mqtt in",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "topic": "unisa/IoT/gruppo07/distanza_animale",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "d5d6e2eeb1b0369d",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 510,
-        "y": 480,
-        "wires": [
-            [
-                "de92f7fc57aac544"
-            ]
-        ]
-    },
-    {
         "id": "8a2f2c3713c54da3",
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
-        "topic": "unisa/IoT/gruppo07/pranzo_animale",
+        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "d5d6e2eeb1b0369d",
+        "broker": "efc7c89dfa0e5254",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
         "x": 500,
-        "y": 600,
+        "y": 500,
         "wires": [
             [
-                "30f75955162f0477"
+                "30f75955162f0477",
+                "25cf2c57edb54250"
             ]
         ]
     },
@@ -262,13 +214,13 @@
         "topic": "unisa/IoT/gruppo07/cena_animale",
         "qos": "2",
         "datatype": "auto-detect",
-        "broker": "d5d6e2eeb1b0369d",
+        "broker": "efc7c89dfa0e5254",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
         "x": 500,
-        "y": 720,
+        "y": 620,
         "wires": [
             [
                 "cf926253dda0a884"
@@ -304,29 +256,6 @@
         "wires": []
     },
     {
-        "id": "de92f7fc57aac544",
-        "type": "ui_toast",
-        "z": "c2efbb9d6f4ed7fd",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "DISMISS",
-        "raw": false,
-        "className": "",
-        "topic": "",
-        "name": "Il cane ha fame.",
-        "x": 800,
-        "y": 480,
-        "wires": [
-            [
-                "291f0f0b819b7cc6"
-            ]
-        ]
-    },
-    {
         "id": "30f75955162f0477",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
@@ -339,10 +268,10 @@
         "cancel": "DISMISS",
         "raw": false,
         "className": "",
-        "topic": "",
-        "name": "Il cane ha pranzato.",
+        "topic": "Il cane ha pranzato!",
+        "name": "Il cane ha pranzato",
         "x": 890,
-        "y": 600,
+        "y": 500,
         "wires": [
             []
         ]
@@ -363,28 +292,10 @@
         "topic": "",
         "name": "Il cane ha cenato.",
         "x": 890,
-        "y": 720,
+        "y": 620,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "fd1979bf6e1e7882",
-        "type": "mqtt out",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "topic": "",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "d5d6e2eeb1b0369d",
-        "x": 1230,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "8a57b3c4184cfb9a",
@@ -399,8 +310,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1290,
-        "y": 720,
+        "x": 590,
+        "y": 920,
         "wires": []
     },
     {
@@ -408,7 +319,7 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Aggiungere notifica in base alla pienezza del dispnser",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -440,8 +351,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 1140,
-        "y": 560,
+        "x": 440,
+        "y": 760,
         "wires": [
             [
                 "072dd270e899cd38"
@@ -486,10 +397,91 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1340,
-        "y": 560,
+        "x": 640,
+        "y": 760,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "3b51c5ea5148774c",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Eroga croccantini",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "unisa/IoT/gruppo07/giveTreat",
+        "topicType": "msg",
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "93ead14df62a38a8",
+                "751d9596d23f13a4"
+            ]
+        ]
+    },
+    {
+        "id": "93ead14df62a38a8",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Debug Give Croccantini",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "751d9596d23f13a4",
+        "type": "mqtt out",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/giveTreat",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "efc7c89dfa0e5254",
+        "x": 800,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "25cf2c57edb54250",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Pet Nearby Lunch",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 440,
+        "wires": []
     }
 ]
