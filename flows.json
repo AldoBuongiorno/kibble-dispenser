@@ -11,7 +11,7 @@
         "id": "d5d6e2eeb1b0369d",
         "type": "mqtt-broker",
         "name": "MyMosquito",
-        "broker": "172.18.0.3",
+        "broker": "test.mosquitto.org",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -55,7 +55,8 @@
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -145,7 +146,7 @@
     {
         "id": "594e2b943ae5f19a",
         "type": "ui_group",
-        "name": "Dashboard1",
+        "name": "Capacità",
         "tab": "ff891277f53e0293",
         "order": 1,
         "disp": true,
@@ -173,11 +174,11 @@
         "payloadType": "str",
         "topic": "unisa/IoT/gruppo07/pranzo_animale",
         "topicType": "msg",
-        "x": 1230,
-        "y": 600,
+        "x": 1030,
+        "y": 480,
         "wires": [
             [
-                "81a7e4bcbebe0698"
+                "fd1979bf6e1e7882"
             ]
         ]
     },
@@ -187,7 +188,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "topic": "unisa/IoT/gruppo07/pienezza_dispenser",
-        "qos": "2",
+        "qos": "0",
         "datatype": "auto-detect",
         "broker": "d5d6e2eeb1b0369d",
         "nl": false,
@@ -198,7 +199,8 @@
         "y": 360,
         "wires": [
             [
-                "45a5313cb016fabd"
+                "45a5313cb016fabd",
+                "c47c8dc737b987fb"
             ]
         ]
     },
@@ -276,8 +278,8 @@
         "height": 0,
         "gtype": "gage",
         "title": "Percentuale di pienezza del dispeser",
-        "label": "units",
-        "format": "{{value}}",
+        "label": "%",
+        "format": "{{msg.payload.percentage}}",
         "min": 0,
         "max": "100",
         "colors": [
@@ -289,7 +291,7 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 950,
+        "x": 1190,
         "y": 360,
         "wires": []
     },
@@ -308,7 +310,7 @@
         "className": "",
         "topic": "",
         "name": "Il cane ha fame.",
-        "x": 880,
+        "x": 800,
         "y": 480,
         "wires": [
             [
@@ -359,24 +361,125 @@
         ]
     },
     {
-        "id": "81a7e4bcbebe0698",
-        "type": "switch",
+        "id": "fd1979bf6e1e7882",
+        "type": "mqtt out",
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "",
-                "vt": "str"
-            }
+        "topic": "",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d5d6e2eeb1b0369d",
+        "x": 1230,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8a57b3c4184cfb9a",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Aggiungere reset",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "c47c8dc737b987fb",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Aggiungere notifica in base alla pienezza del dispnser",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.percentage",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "093f02624fc93622",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Log time eating",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1140,
+        "y": 560,
+        "wires": [
+            [
+                "072dd270e899cd38"
+            ]
+        ]
+    },
+    {
+        "id": "072dd270e899cd38",
+        "type": "ui_chart",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Shows eating",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
         ],
-        "checkall": "true",
-        "repair": false,
         "outputs": 1,
-        "x": 1410,
-        "y": 600,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1340,
+        "y": 560,
         "wires": [
             []
         ]
