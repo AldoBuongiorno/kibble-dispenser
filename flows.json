@@ -126,7 +126,7 @@
         "name": "Capacità",
         "tab": "ff891277f53e0293",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "6",
         "collapse": false,
         "className": ""
@@ -163,6 +163,26 @@
         "sessionExpiry": ""
     },
     {
+        "id": "44c9bd5466e9e79a",
+        "type": "ui_tab",
+        "name": "Logging data",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bcd52fed18f2f30a",
+        "type": "ui_group",
+        "name": "Logs",
+        "tab": "44c9bd5466e9e79a",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "5d7b780d1325102e",
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
@@ -175,8 +195,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 510,
-        "y": 360,
+        "x": 410,
+        "y": 440,
         "wires": [
             [
                 "45a5313cb016fabd",
@@ -198,7 +218,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 500,
-        "y": 500,
+        "y": 660,
         "wires": [
             [
                 "30f75955162f0477",
@@ -220,10 +240,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 500,
-        "y": 620,
+        "y": 780,
         "wires": [
             [
-                "cf926253dda0a884"
+                "cf926253dda0a884",
+                "3bcb228a63d3304f"
             ]
         ]
     },
@@ -233,7 +254,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 5,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -251,19 +272,19 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 1190,
-        "y": 360,
+        "x": 950,
+        "y": 440,
         "wires": []
     },
     {
         "id": "30f75955162f0477",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
-        "position": "dialog",
+        "position": "top right",
         "displayTime": "3",
         "highlight": "",
         "sendall": true,
-        "outputs": 1,
+        "outputs": 0,
         "ok": "OK",
         "cancel": "DISMISS",
         "raw": false,
@@ -271,10 +292,8 @@
         "topic": "Il cane ha pranzato!",
         "name": "Il cane ha pranzato",
         "x": 890,
-        "y": 500,
-        "wires": [
-            []
-        ]
+        "y": 660,
+        "wires": []
     },
     {
         "id": "cf926253dda0a884",
@@ -286,13 +305,13 @@
         "sendall": true,
         "outputs": 1,
         "ok": "OK",
-        "cancel": "DISMISS",
+        "cancel": "",
         "raw": false,
         "className": "",
         "topic": "",
         "name": "Il cane ha cenato.",
         "x": 890,
-        "y": 620,
+        "y": 780,
         "wires": [
             []
         ]
@@ -302,7 +321,7 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Aggiungere reset",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -310,7 +329,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
+        "x": 930,
         "y": 920,
         "wires": []
     },
@@ -328,80 +347,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1000,
-        "y": 280,
+        "y": 380,
         "wires": []
-    },
-    {
-        "id": "093f02624fc93622",
-        "type": "ui_button",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Log time eating",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 440,
-        "y": 760,
-        "wires": [
-            [
-                "072dd270e899cd38"
-            ]
-        ]
-    },
-    {
-        "id": "072dd270e899cd38",
-        "type": "ui_chart",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "label": "Shows eating",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 640,
-        "y": 760,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "3b51c5ea5148774c",
@@ -409,7 +356,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 5,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -428,7 +375,8 @@
         "wires": [
             [
                 "93ead14df62a38a8",
-                "751d9596d23f13a4"
+                "751d9596d23f13a4",
+                "de682967d8a733c0"
             ]
         ]
     },
@@ -472,7 +420,7 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Pet Nearby Lunch",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -481,7 +429,214 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 910,
-        "y": 440,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3bcb228a63d3304f",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Pet Nearby Dinner",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "c4035ae4c9a42cde",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Log eating",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 490,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "18a8f41887ee3eb5",
+        "type": "ui_chart",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "bcd52fed18f2f30a",
+        "order": 1,
+        "width": 8,
+        "height": 11,
+        "label": "Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "bezier",
+        "nodata": "",
+        "dot": true,
+        "ymin": "1",
+        "ymax": "12",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1190,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "de682967d8a733c0",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Acquire datetime",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    //msg.payload = JSON.parse(json);\n    msg.payload = json;\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 260,
+        "wires": [
+            [
+                "f9cb2eafd0902ef7",
+                "b2844e5c8189de83"
+            ]
+        ]
+    },
+    {
+        "id": "308924b34eaf2eaf",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check data",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6c2d7bb0d358e451",
+        "type": "csv",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "CSV",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 1030,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f9cb2eafd0902ef7",
+        "type": "json",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "JSON to JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 920,
+        "y": 220,
+        "wires": [
+            [
+                "308924b34eaf2eaf"
+            ]
+        ]
+    },
+    {
+        "id": "b2844e5c8189de83",
+        "type": "change",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Change",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 980,
+        "y": 280,
+        "wires": [
+            [
+                "18a8f41887ee3eb5",
+                "c91ff52f09d9318d"
+            ]
+        ]
+    },
+    {
+        "id": "c91ff52f09d9318d",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 200,
         "wires": []
     }
 ]
