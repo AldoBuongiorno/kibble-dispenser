@@ -211,7 +211,7 @@
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
-        "topic": "unisa/IoT/gruppo07/cena_animale",
+        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "efc7c89dfa0e5254",
@@ -220,10 +220,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 500,
-        "y": 620,
+        "y": 660,
         "wires": [
             [
-                "cf926253dda0a884"
+                "cf926253dda0a884",
+                "157381c7b2466b50"
             ]
         ]
     },
@@ -251,7 +252,7 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 1190,
+        "x": 930,
         "y": 360,
         "wires": []
     },
@@ -270,7 +271,7 @@
         "className": "",
         "topic": "Il cane ha pranzato!",
         "name": "Il cane ha pranzato",
-        "x": 890,
+        "x": 870,
         "y": 500,
         "wires": [
             []
@@ -289,10 +290,10 @@
         "cancel": "DISMISS",
         "raw": false,
         "className": "",
-        "topic": "",
-        "name": "Il cane ha cenato.",
-        "x": 890,
-        "y": 620,
+        "topic": "Il cane ha cenato!",
+        "name": "Il cane ha cenato",
+        "x": 870,
+        "y": 660,
         "wires": [
             []
         ]
@@ -310,7 +311,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
+        "x": 630,
         "y": 920,
         "wires": []
     },
@@ -327,7 +328,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
+        "x": 980,
         "y": 280,
         "wires": []
     },
@@ -351,8 +352,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 440,
-        "y": 760,
+        "x": 400,
+        "y": 820,
         "wires": [
             [
                 "072dd270e899cd38"
@@ -397,8 +398,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 640,
-        "y": 760,
+        "x": 600,
+        "y": 820,
         "wires": [
             []
         ]
@@ -424,7 +425,7 @@
         "topic": "unisa/IoT/gruppo07/giveTreat",
         "topicType": "msg",
         "x": 450,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "93ead14df62a38a8",
@@ -445,8 +446,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 60,
+        "x": 890,
+        "y": 100,
         "wires": []
     },
     {
@@ -463,8 +464,8 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 800,
-        "y": 140,
+        "x": 900,
+        "y": 180,
         "wires": []
     },
     {
@@ -472,6 +473,23 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Pet Nearby Lunch",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "157381c7b2466b50",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Pet Nearby Dinner",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -480,8 +498,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 440,
+        "x": 870,
+        "y": 600,
         "wires": []
     }
 ]
