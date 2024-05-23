@@ -231,7 +231,7 @@
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
-        "topic": "unisa/IoT/gruppo07/cena_animale",
+        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "efc7c89dfa0e5254",
@@ -240,11 +240,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 500,
-        "y": 780,
+        "y": 660,
         "wires": [
             [
                 "cf926253dda0a884",
-                "3bcb228a63d3304f"
+                "157381c7b2466b50"
             ]
         ]
     },
@@ -272,8 +272,8 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 950,
-        "y": 440,
+        "x": 930,
+        "y": 360,
         "wires": []
     },
     {
@@ -291,9 +291,11 @@
         "className": "",
         "topic": "Il cane ha pranzato!",
         "name": "Il cane ha pranzato",
-        "x": 890,
-        "y": 660,
-        "wires": []
+        "x": 870,
+        "y": 500,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "cf926253dda0a884",
@@ -329,7 +331,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
+        "x": 630,
         "y": 920,
         "wires": []
     },
@@ -346,9 +348,81 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 380,
+        "x": 980,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "093f02624fc93622",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Log time eating",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 400,
+        "y": 820,
+        "wires": [
+            [
+                "072dd270e899cd38"
+            ]
+        ]
+    },
+    {
+        "id": "072dd270e899cd38",
+        "type": "ui_chart",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Shows eating",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 600,
+        "y": 820,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "3b51c5ea5148774c",
@@ -371,7 +445,7 @@
         "topic": "unisa/IoT/gruppo07/giveTreat",
         "topicType": "msg",
         "x": 450,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "93ead14df62a38a8",
@@ -393,8 +467,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 60,
+        "x": 890,
+        "y": 100,
         "wires": []
     },
     {
@@ -411,8 +485,8 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 800,
-        "y": 140,
+        "x": 900,
+        "y": 180,
         "wires": []
     },
     {
@@ -635,8 +709,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 200,
+        "x": 870,
+        "y": 600,
         "wires": []
     }
 ]
