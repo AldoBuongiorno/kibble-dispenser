@@ -186,7 +186,7 @@
         "id": "5d7b780d1325102e",
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "",
+        "name": "Capacità dispenser",
         "topic": "unisa/IoT/gruppo07/pienezza_dispenser",
         "qos": "0",
         "datatype": "auto-detect",
@@ -195,7 +195,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 190,
+        "x": 130,
         "y": 460,
         "wires": [
             [
@@ -208,21 +208,19 @@
         "id": "fa2dc71f77bfc4e6",
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "",
+        "name": "Il cane ha pranzato",
         "topic": "unisa/IoT/gruppo07/giveTreatAuto",
-        "qos": "2",
+        "qos": "1",
         "datatype": "auto-detect",
         "broker": "efc7c89dfa0e5254",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 400,
-        "y": 640,
+        "x": 310,
+        "y": 620,
         "wires": [
             [
-                "cf926253dda0a884",
-                "3bcb228a63d3304f",
                 "4a3e8672b9a992a0",
                 "30f75955162f0477",
                 "25cf2c57edb54250"
@@ -261,20 +259,22 @@
         "id": "30f75955162f0477",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
-        "position": "top right",
+        "position": "dialog",
         "displayTime": "3",
         "highlight": "",
         "sendall": true,
-        "outputs": 0,
+        "outputs": 1,
         "ok": "OK",
-        "cancel": "DISMISS",
+        "cancel": "",
         "raw": false,
         "className": "",
-        "topic": "Il cane ha pranzato!",
+        "topic": "Il cane ha pranzato",
         "name": "Il cane ha pranzato",
-        "x": 1010,
-        "y": 620,
-        "wires": []
+        "x": 970,
+        "y": 640,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "cf926253dda0a884",
@@ -291,8 +291,8 @@
         "className": "",
         "topic": "",
         "name": "Il cane ha cenato.",
-        "x": 970,
-        "y": 820,
+        "x": 950,
+        "y": 900,
         "wires": [
             []
         ]
@@ -310,8 +310,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 800,
+        "x": 350,
+        "y": 920,
         "wires": []
     },
     {
@@ -409,8 +409,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 680,
+        "x": 970,
+        "y": 720,
         "wires": []
     },
     {
@@ -426,15 +426,15 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
-        "y": 760,
+        "x": 970,
+        "y": 820,
         "wires": []
     },
     {
         "id": "18a8f41887ee3eb5",
         "type": "ui_chart",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "",
+        "name": "Pranzo",
         "group": "bcd52fed18f2f30a",
         "order": 1,
         "width": 8,
@@ -468,8 +468,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1070,
-        "y": 400,
+        "x": 1120,
+        "y": 360,
         "wires": [
             []
         ]
@@ -479,7 +479,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    //msg.payload = JSON.parse(json);\n    msg.payload = JSON.stringify(json);\n    //let array = Object.values(json)\n    msg.payload = json;\n    return msg;\n}\n",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Manuale\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -565,15 +565,15 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    //msg.payload = JSON.parse(json);\n    msg.payload = JSON.stringify(json);\n    //let array = Object.values(json)\n    msg.payload = json;\n    return msg;\n}\n",
+        "func": "if(typeof(msg.payload) === 'string'){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Automatico\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 770,
-        "y": 560,
+        "x": 690,
+        "y": 540,
         "wires": [
             [
                 "8d0f3a222b8e6eae"
@@ -599,11 +599,51 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 940,
-        "y": 500,
+        "x": 980,
+        "y": 540,
         "wires": [
             [
+                "05938a3b81b82c1c",
                 "18a8f41887ee3eb5"
+            ]
+        ]
+    },
+    {
+        "id": "05938a3b81b82c1c",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d671a4400ef5b659",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Il cane ha cenato",
+        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "efc7c89dfa0e5254",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 780,
+        "wires": [
+            [
+                "3bcb228a63d3304f",
+                "cf926253dda0a884"
             ]
         ]
     },
