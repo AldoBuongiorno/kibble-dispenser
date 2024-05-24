@@ -209,7 +209,7 @@
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Il cane ha pranzato",
-        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
+        "topic": "unisa/IoT/gruppo07/giveTreatAutoLaunch",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "efc7c89dfa0e5254",
@@ -289,8 +289,8 @@
         "cancel": "",
         "raw": false,
         "className": "",
-        "topic": "",
-        "name": "Il cane ha cenato.",
+        "topic": "Il cane ha cenato",
+        "name": "Il cane ha cenato",
         "x": 950,
         "y": 900,
         "wires": [
@@ -509,8 +509,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 1090,
-        "y": 40,
+        "x": 1110,
+        "y": 120,
         "wires": [
             []
         ]
@@ -630,7 +630,7 @@
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Il cane ha cenato",
-        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
+        "topic": "unisa/IoT/gruppo07/giveTreatAutoDinner",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "efc7c89dfa0e5254",
