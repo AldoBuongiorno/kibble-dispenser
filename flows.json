@@ -606,27 +606,9 @@
         "y": 260,
         "wires": [
             [
-                "f9cb2eafd0902ef7",
                 "1685fcc8aef1f7dd"
             ]
         ]
-    },
-    {
-        "id": "308924b34eaf2eaf",
-        "type": "debug",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "Check data",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1110,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "6c2d7bb0d358e451",
@@ -647,22 +629,6 @@
         "y": 40,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f9cb2eafd0902ef7",
-        "type": "json",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "JSON to JSON",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 860,
-        "y": 180,
-        "wires": [
-            [
-                "308924b34eaf2eaf"
-            ]
         ]
     },
     {
