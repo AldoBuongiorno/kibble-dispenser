@@ -195,8 +195,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 130,
-        "y": 460,
+        "x": 270,
+        "y": 640,
         "wires": [
             [
                 "45a5313cb016fabd",
@@ -217,8 +217,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 310,
-        "y": 620,
+        "x": 450,
+        "y": 800,
         "wires": [
             [
                 "4a3e8672b9a992a0",
@@ -251,8 +251,8 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 570,
-        "y": 460,
+        "x": 710,
+        "y": 640,
         "wires": []
     },
     {
@@ -270,8 +270,8 @@
         "className": "",
         "topic": "Il cane ha pranzato",
         "name": "Il cane ha pranzato",
-        "x": 970,
-        "y": 640,
+        "x": 1030,
+        "y": 820,
         "wires": [
             []
         ]
@@ -291,28 +291,11 @@
         "className": "",
         "topic": "Il cane ha cenato",
         "name": "Il cane ha cenato",
-        "x": 950,
-        "y": 900,
+        "x": 1110,
+        "y": 1260,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "8a57b3c4184cfb9a",
-        "type": "debug",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "Aggiungere reset",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 350,
-        "y": 920,
-        "wires": []
     },
     {
         "id": "c47c8dc737b987fb",
@@ -327,8 +310,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
-        "y": 360,
+        "x": 720,
+        "y": 540,
         "wires": []
     },
     {
@@ -351,8 +334,8 @@
         "payloadType": "bool",
         "topic": "unisa/IoT/gruppo07/giveTreat",
         "topicType": "msg",
-        "x": 250,
-        "y": 180,
+        "x": 390,
+        "y": 360,
         "wires": [
             [
                 "93ead14df62a38a8",
@@ -374,8 +357,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 60,
+        "x": 750,
+        "y": 240,
         "wires": []
     },
     {
@@ -392,8 +375,8 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 640,
-        "y": 140,
+        "x": 780,
+        "y": 320,
         "wires": []
     },
     {
@@ -409,8 +392,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 720,
+        "x": 1010,
+        "y": 900,
         "wires": []
     },
     {
@@ -426,15 +409,15 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 820,
+        "x": 1110,
+        "y": 1180,
         "wires": []
     },
     {
         "id": "18a8f41887ee3eb5",
         "type": "ui_chart",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "Pranzo",
+        "name": "Food",
         "group": "bcd52fed18f2f30a",
         "order": 1,
         "width": 8,
@@ -468,8 +451,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1120,
-        "y": 360,
+        "x": 1250,
+        "y": 540,
         "wires": [
             []
         ]
@@ -486,8 +469,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 570,
-        "y": 260,
+        "x": 710,
+        "y": 440,
         "wires": [
             [
                 "1685fcc8aef1f7dd"
@@ -509,8 +492,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 1110,
-        "y": 120,
+        "x": 1250,
+        "y": 300,
         "wires": [
             []
         ]
@@ -528,8 +511,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
-        "y": 260,
+        "x": 1250,
+        "y": 440,
         "wires": []
     },
     {
@@ -551,8 +534,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 840,
-        "y": 280,
+        "x": 980,
+        "y": 460,
         "wires": [
             [
                 "c91ff52f09d9318d",
@@ -572,8 +555,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 540,
+        "x": 830,
+        "y": 720,
         "wires": [
             [
                 "8d0f3a222b8e6eae"
@@ -599,8 +582,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 980,
-        "y": 540,
+        "x": 1040,
+        "y": 720,
         "wires": [
             [
                 "05938a3b81b82c1c",
@@ -613,7 +596,7 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Check data",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -621,8 +604,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1270,
-        "y": 540,
+        "x": 1410,
+        "y": 720,
         "wires": []
     },
     {
@@ -638,12 +621,138 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 320,
-        "y": 780,
+        "x": 440,
+        "y": 1140,
         "wires": [
             [
                 "3bcb228a63d3304f",
-                "cf926253dda0a884"
+                "cf926253dda0a884",
+                "39a6b62cfe2cd70d"
+            ]
+        ]
+    },
+    {
+        "id": "997ea8b94a958241",
+        "type": "ui_toast",
+        "z": "c2efbb9d6f4ed7fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Croccantini Erogati",
+        "name": "Croccantini Erogati",
+        "x": 990,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89963cd571d116eb",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Notifica Croccantini Erogati ",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3d32d3403aad7b26",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Croccantini Erogati",
+        "topic": "unisa/IoT/gruppo07/treatGiven",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "efc7c89dfa0e5254",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "89963cd571d116eb",
+                "997ea8b94a958241"
+            ]
+        ]
+    },
+    {
+        "id": "39a6b62cfe2cd70d",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Acquire datetime",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Manuale\"\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1040,
+        "wires": [
+            [
+                "314a145e32a6c304"
+            ]
+        ]
+    },
+    {
+        "id": "9388d81a84bbf170",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1490,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "314a145e32a6c304",
+        "type": "change",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Acquire hours",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ora",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120,
+        "y": 1040,
+        "wires": [
+            [
+                "9388d81a84bbf170",
+                "18a8f41887ee3eb5"
             ]
         ]
     },
