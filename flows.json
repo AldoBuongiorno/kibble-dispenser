@@ -195,34 +195,12 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 310,
-        "y": 480,
+        "x": 190,
+        "y": 460,
         "wires": [
             [
                 "45a5313cb016fabd",
                 "c47c8dc737b987fb"
-            ]
-        ]
-    },
-    {
-        "id": "8a2f2c3713c54da3",
-        "type": "mqtt in",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "topic": "unisa/IoT/gruppo07/giveTreatAuto",
-        "qos": "2",
-        "datatype": "auto-detect",
-        "broker": "efc7c89dfa0e5254",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 500,
-        "y": 660,
-        "wires": [
-            [
-                "30f75955162f0477",
-                "25cf2c57edb54250"
             ]
         ]
     },
@@ -239,11 +217,15 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 500,
-        "y": 660,
+        "x": 400,
+        "y": 640,
         "wires": [
             [
-                "cf926253dda0a884"
+                "cf926253dda0a884",
+                "3bcb228a63d3304f",
+                "4a3e8672b9a992a0",
+                "30f75955162f0477",
+                "25cf2c57edb54250"
             ]
         ]
     },
@@ -271,8 +253,8 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 850,
-        "y": 540,
+        "x": 570,
+        "y": 460,
         "wires": []
     },
     {
@@ -328,8 +310,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 920,
+        "x": 450,
+        "y": 800,
         "wires": []
     },
     {
@@ -345,81 +327,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 420,
+        "x": 580,
+        "y": 360,
         "wires": []
-    },
-    {
-        "id": "093f02624fc93622",
-        "type": "ui_button",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Log time eating",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 400,
-        "y": 820,
-        "wires": [
-            [
-                "072dd270e899cd38"
-            ]
-        ]
-    },
-    {
-        "id": "072dd270e899cd38",
-        "type": "ui_chart",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "label": "Shows eating",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 600,
-        "y": 820,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "3b51c5ea5148774c",
@@ -521,32 +431,6 @@
         "wires": []
     },
     {
-        "id": "c4035ae4c9a42cde",
-        "type": "ui_button",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "group": "594e2b943ae5f19a",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Log eating",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 490,
-        "y": 960,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "18a8f41887ee3eb5",
         "type": "ui_chart",
         "z": "c2efbb9d6f4ed7fd",
@@ -564,9 +448,9 @@
         "dot": true,
         "ymin": "0",
         "ymax": "24",
-        "removeOlder": "2",
+        "removeOlder": "1",
         "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
+        "removeOlderUnit": "604800",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -584,8 +468,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1210,
-        "y": 260,
+        "x": 1070,
+        "y": 400,
         "wires": [
             []
         ]
@@ -644,8 +528,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
-        "y": 340,
+        "x": 1110,
+        "y": 260,
         "wires": []
     },
     {
@@ -672,6 +556,53 @@
         "wires": [
             [
                 "c91ff52f09d9318d",
+                "18a8f41887ee3eb5"
+            ]
+        ]
+    },
+    {
+        "id": "4a3e8672b9a992a0",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Acquire datetime",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    //msg.payload = JSON.parse(json);\n    msg.payload = JSON.stringify(json);\n    //let array = Object.values(json)\n    msg.payload = json;\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 560,
+        "wires": [
+            [
+                "8d0f3a222b8e6eae"
+            ]
+        ]
+    },
+    {
+        "id": "8d0f3a222b8e6eae",
+        "type": "change",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Acquire hours",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ora",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 500,
+        "wires": [
+            [
                 "18a8f41887ee3eb5"
             ]
         ]
