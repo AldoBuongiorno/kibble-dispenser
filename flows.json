@@ -125,7 +125,7 @@
         "type": "ui_group",
         "name": "Capacità",
         "tab": "ff891277f53e0293",
-        "order": 1,
+        "order": 2,
         "disp": false,
         "width": "6",
         "collapse": false,
@@ -163,22 +163,13 @@
         "sessionExpiry": ""
     },
     {
-        "id": "44c9bd5466e9e79a",
-        "type": "ui_tab",
-        "name": "Logging data",
-        "icon": "dashboard",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "bcd52fed18f2f30a",
         "type": "ui_group",
         "name": "Logs",
-        "tab": "44c9bd5466e9e79a",
+        "tab": "ff891277f53e0293",
         "order": 1,
         "disp": true,
-        "width": 8,
+        "width": 10,
         "collapse": false,
         "className": ""
     },
@@ -233,7 +224,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -270,8 +261,8 @@
         "className": "",
         "topic": "Il cane ha pranzato",
         "name": "Il cane ha pranzato",
-        "x": 1030,
-        "y": 820,
+        "x": 850,
+        "y": 800,
         "wires": [
             []
         ]
@@ -320,7 +311,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -365,7 +356,7 @@
         "id": "751d9596d23f13a4",
         "type": "mqtt out",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "",
+        "name": "Manuale",
         "topic": "unisa/IoT/gruppo07/giveTreat",
         "qos": "1",
         "retain": "",
@@ -375,7 +366,7 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 780,
+        "x": 720,
         "y": 320,
         "wires": []
     },
@@ -392,7 +383,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
+        "x": 770,
         "y": 900,
         "wires": []
     },
@@ -420,8 +411,8 @@
         "name": "Food",
         "group": "bcd52fed18f2f30a",
         "order": 1,
-        "width": 8,
-        "height": 11,
+        "width": 10,
+        "height": 14,
         "label": "Chart",
         "chartType": "line",
         "legend": "true",
@@ -451,8 +442,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1250,
-        "y": 540,
+        "x": 1490,
+        "y": 580,
         "wires": [
             []
         ]
@@ -462,7 +453,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Manuale\"\n    return msg;\n}\n",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDate();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Manuale\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -473,7 +464,8 @@
         "y": 440,
         "wires": [
             [
-                "1685fcc8aef1f7dd"
+                "1685fcc8aef1f7dd",
+                "36a2633c860385df"
             ]
         ]
     },
@@ -482,20 +474,22 @@
         "type": "csv",
         "z": "c2efbb9d6f4ed7fd",
         "name": "CSV",
-        "sep": ",",
-        "hdrin": "",
+        "sep": ";",
+        "hdrin": false,
         "hdrout": "none",
         "multi": "one",
         "ret": "\\n",
-        "temp": "",
+        "temp": "Tipo,Giorno,Mese,Ora,Minuti",
         "skip": "0",
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 1250,
-        "y": 300,
+        "x": 1330,
+        "y": 280,
         "wires": [
-            []
+            [
+                "d15c47fe12012f03"
+            ]
         ]
     },
     {
@@ -548,7 +542,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(typeof(msg.payload) === 'string'){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Automatico\"\n    return msg;\n}\n",
+        "func": "if(typeof(msg.payload) === 'string'){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Pranzo automatico\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -604,8 +598,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
-        "y": 720,
+        "x": 1070,
+        "y": 840,
         "wires": []
     },
     {
@@ -646,8 +640,8 @@
         "className": "",
         "topic": "Croccantini Erogati",
         "name": "Croccantini Erogati",
-        "x": 990,
-        "y": 120,
+        "x": 1010,
+        "y": 140,
         "wires": [
             []
         ]
@@ -666,7 +660,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1020,
-        "y": 40,
+        "y": 60,
         "wires": []
     },
     {
@@ -682,8 +676,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 390,
-        "y": 60,
+        "x": 530,
+        "y": 100,
         "wires": [
             [
                 "89963cd571d116eb",
@@ -696,7 +690,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Manuale\"\n    return msg;\n}\n",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Cena automatico\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -716,7 +710,7 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Check data",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -755,6 +749,61 @@
                 "18a8f41887ee3eb5"
             ]
         ]
+    },
+    {
+        "id": "36a2633c860385df",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Traduzione",
+        "func": "let infos = msg.payload;\nlet topic = msg.topic;\nvar string_infos = topic + ';' + infos.giorno + ';' + infos.mese + \";\" \n+ infos.ora + \";\" + infos.minuti + \";\";\nreturn {payload: string_infos};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 360,
+        "wires": [
+            [
+                "6c2d7bb0d358e451",
+                "c8c9a576a827e46b"
+            ]
+        ]
+    },
+    {
+        "id": "d15c47fe12012f03",
+        "type": "file",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "filename": "/data/prova.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 1480,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8c9a576a827e46b",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check data",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 240,
+        "wires": []
     },
     {
         "id": "b58dd0fccc7f187b",
