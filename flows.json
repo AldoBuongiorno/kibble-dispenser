@@ -186,8 +186,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 270,
-        "y": 640,
+        "x": 250,
+        "y": 1260,
         "wires": [
             [
                 "45a5313cb016fabd",
@@ -208,8 +208,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 450,
-        "y": 800,
+        "x": 410,
+        "y": 660,
         "wires": [
             [
                 "4a3e8672b9a992a0",
@@ -242,8 +242,8 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 710,
-        "y": 640,
+        "x": 690,
+        "y": 1260,
         "wires": []
     },
     {
@@ -261,8 +261,8 @@
         "className": "",
         "topic": "Il cane ha pranzato",
         "name": "Il cane ha pranzato",
-        "x": 850,
-        "y": 800,
+        "x": 770,
+        "y": 760,
         "wires": [
             []
         ]
@@ -282,8 +282,8 @@
         "className": "",
         "topic": "Il cane ha cenato",
         "name": "Il cane ha cenato",
-        "x": 1110,
-        "y": 1260,
+        "x": 1070,
+        "y": 1120,
         "wires": [
             []
         ]
@@ -301,8 +301,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
-        "y": 540,
+        "x": 700,
+        "y": 1160,
         "wires": []
     },
     {
@@ -383,8 +383,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 900,
+        "x": 730,
+        "y": 820,
         "wires": []
     },
     {
@@ -400,8 +400,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
-        "y": 1180,
+        "x": 1070,
+        "y": 1040,
         "wires": []
     },
     {
@@ -442,7 +442,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1490,
+        "x": 1550,
         "y": 580,
         "wires": [
             []
@@ -484,8 +484,8 @@
         "strings": true,
         "include_empty_strings": "",
         "include_null_values": "",
-        "x": 1330,
-        "y": 280,
+        "x": 1470,
+        "y": 300,
         "wires": [
             [
                 "d15c47fe12012f03"
@@ -505,7 +505,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1250,
+        "x": 1570,
         "y": 440,
         "wires": []
     },
@@ -528,8 +528,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 980,
-        "y": 460,
+        "x": 960,
+        "y": 480,
         "wires": [
             [
                 "c91ff52f09d9318d",
@@ -542,18 +542,19 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(typeof(msg.payload) === 'string'){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Pranzo automatico\"\n    return msg;\n}\n",
+        "func": "if(typeof(msg.payload) === 'string'){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDate();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Pranzo automatico\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 720,
+        "x": 790,
+        "y": 580,
         "wires": [
             [
-                "8d0f3a222b8e6eae"
+                "8d0f3a222b8e6eae",
+                "36a2633c860385df"
             ]
         ]
     },
@@ -576,8 +577,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1040,
-        "y": 720,
+        "x": 1180,
+        "y": 640,
         "wires": [
             [
                 "05938a3b81b82c1c",
@@ -598,8 +599,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
-        "y": 840,
+        "x": 1170,
+        "y": 780,
         "wires": []
     },
     {
@@ -615,8 +616,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 440,
-        "y": 1140,
+        "x": 400,
+        "y": 1000,
         "wires": [
             [
                 "3bcb228a63d3304f",
@@ -638,7 +639,7 @@
         "cancel": "",
         "raw": false,
         "className": "",
-        "topic": "Croccantini Erogati",
+        "topic": "Il cane ha mangiato",
         "name": "Croccantini Erogati",
         "x": 1010,
         "y": 140,
@@ -690,18 +691,19 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDay();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Cena automatico\"\n    return msg;\n}\n",
+        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDate();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Cena automatico\"\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 1040,
+        "x": 790,
+        "y": 900,
         "wires": [
             [
-                "314a145e32a6c304"
+                "314a145e32a6c304",
+                "36a2633c860385df"
             ]
         ]
     },
@@ -718,8 +720,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1490,
-        "y": 1040,
+        "x": 1450,
+        "y": 900,
         "wires": []
     },
     {
@@ -741,8 +743,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1120,
-        "y": 1040,
+        "x": 1080,
+        "y": 900,
         "wires": [
             [
                 "9388d81a84bbf170",
@@ -762,7 +764,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1050,
+        "x": 1270,
         "y": 360,
         "wires": [
             [
@@ -782,8 +784,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "utf8",
-        "x": 1480,
-        "y": 120,
+        "x": 1560,
+        "y": 200,
         "wires": [
             []
         ]
