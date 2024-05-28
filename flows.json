@@ -191,7 +191,8 @@
         "wires": [
             [
                 "45a5313cb016fabd",
-                "c47c8dc737b987fb"
+                "c47c8dc737b987fb",
+                "7663f08286a848d7"
             ]
         ]
     },
@@ -224,7 +225,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -293,7 +294,7 @@
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Aggiungere notifica in base alla pienezza del dispnser",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -311,7 +312,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -436,7 +437,7 @@
             "#98df8a",
             "#d62728",
             "#ff9896",
-            "#9467bd",
+            "#8b20ee",
             "#c5b0d5"
         ],
         "outputs": 1,
@@ -460,35 +461,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 440,
+        "x": 650,
+        "y": 420,
         "wires": [
             [
                 "1685fcc8aef1f7dd",
                 "36a2633c860385df"
-            ]
-        ]
-    },
-    {
-        "id": "6c2d7bb0d358e451",
-        "type": "csv",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "CSV",
-        "sep": ";",
-        "hdrin": false,
-        "hdrout": "none",
-        "multi": "one",
-        "ret": "\\n",
-        "temp": "Tipo,Giorno,Mese,Ora,Minuti",
-        "skip": "0",
-        "strings": true,
-        "include_empty_strings": "",
-        "include_null_values": "",
-        "x": 1470,
-        "y": 300,
-        "wires": [
-            [
-                "d15c47fe12012f03"
             ]
         ]
     },
@@ -528,8 +506,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 960,
-        "y": 480,
+        "x": 860,
+        "y": 500,
         "wires": [
             [
                 "c91ff52f09d9318d",
@@ -630,11 +608,11 @@
         "id": "997ea8b94a958241",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
-        "position": "dialog",
-        "displayTime": "3",
+        "position": "top right",
+        "displayTime": "5",
         "highlight": "",
         "sendall": true,
-        "outputs": 1,
+        "outputs": 0,
         "ok": "OK",
         "cancel": "",
         "raw": false,
@@ -643,9 +621,7 @@
         "name": "Croccantini Erogati",
         "x": 1010,
         "y": 140,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "89963cd571d116eb",
@@ -757,19 +733,19 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Traduzione",
-        "func": "let infos = msg.payload;\nlet topic = msg.topic;\nvar string_infos = topic + ';' + infos.giorno + ';' + infos.mese + \";\" \n+ infos.ora + \";\" + infos.minuti + \";\";\nreturn {payload: string_infos};",
+        "func": "let infos = msg.payload;\nlet topic = msg.topic;\nvar string_infos = 'Tipo:' + topic + ',' + 'Giorno:' \n+ infos.giorno + ',' + 'Mese:' + infos.mese + ','\n+ 'Ora:' + infos.ora + ',' + 'Minuti:' + infos.minuti + \";\";\nreturn { payload: string_infos };",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1270,
+        "x": 1210,
         "y": 360,
         "wires": [
             [
-                "6c2d7bb0d358e451",
-                "c8c9a576a827e46b"
+                "c8c9a576a827e46b",
+                "d15c47fe12012f03"
             ]
         ]
     },
@@ -803,8 +779,145 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1170,
-        "y": 240,
+        "x": 1210,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5a0c454ebdd871af",
+        "type": "ui_button",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "group": "594e2b943ae5f19a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 860,
+        "wires": [
+            [
+                "a923faa959c935da"
+            ]
+        ]
+    },
+    {
+        "id": "a923faa959c935da",
+        "type": "mqtt out",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Restart",
+        "topic": "unisa/IoT/gruppo07/reset",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "efc7c89dfa0e5254",
+        "x": 360,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "fb9ed68e7473c223",
+        "type": "ui_toast",
+        "z": "c2efbb9d6f4ed7fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Capacity alert",
+        "name": "Capacity alert",
+        "x": 1060,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7663f08286a848d7",
+        "type": "switch",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check capacity",
+        "property": "payload.percentage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "20",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1360,
+        "wires": [
+            [
+                "7f84dde390b66209"
+            ]
+        ]
+    },
+    {
+        "id": "7f84dde390b66209",
+        "type": "change",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.notification",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 1360,
+        "wires": [
+            [
+                "fb9ed68e7473c223",
+                "8499d2a700f15dec"
+            ]
+        ]
+    },
+    {
+        "id": "8499d2a700f15dec",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 1260,
         "wires": []
     },
     {
