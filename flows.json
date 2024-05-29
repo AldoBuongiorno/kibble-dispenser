@@ -298,23 +298,6 @@
         ]
     },
     {
-        "id": "c47c8dc737b987fb",
-        "type": "debug",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "Aggiungere notifica in base alla pienezza del dispnser",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.percentage",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 1160,
-        "wires": []
-    },
-    {
         "id": "3b51c5ea5148774c",
         "type": "ui_button",
         "z": "c2efbb9d6f4ed7fd",
@@ -820,7 +803,47 @@
         "wires": []
     },
     {
-        "id": "fb9ed68e7473c223",
+        "id": "c47c8dc737b987fb",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Aggiungere notifica in base alla pienezza del dispnser",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.percentage",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "1fa9168d3a13b777",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Capacità dispenser",
+        "topic": "unisa/IoT/gruppo07/almostEmpty",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "efc7c89dfa0e5254",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 1440,
+        "wires": [
+            [
+                "bf62d722cc232cfb",
+                "4964a56aa8c5ca19",
+                "a9213bfc54b66564"
+            ]
+        ]
+    },
+    {
+        "id": "0868e6145653f1da",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
         "position": "dialog",
@@ -832,16 +855,16 @@
         "cancel": "",
         "raw": false,
         "className": "",
-        "topic": "Capacity alert",
-        "name": "Capacity alert",
-        "x": 1180,
-        "y": 1360,
+        "topic": "Capacity Alert",
+        "name": "Capacity Alert",
+        "x": 1120,
+        "y": 1380,
         "wires": [
             []
         ]
     },
     {
-        "id": "7663f08286a848d7",
+        "id": "bf62d722cc232cfb",
         "type": "switch",
         "z": "c2efbb9d6f4ed7fd",
         "name": "Check capacity",
@@ -858,81 +881,35 @@
         "repair": false,
         "outputs": 1,
         "x": 520,
-        "y": 1360,
+        "y": 1380,
         "wires": [
             [
-                "7f84dde390b66209"
+                "653c3899466a66b5"
             ]
         ]
     },
     {
-        "id": "7f84dde390b66209",
-        "type": "change",
+        "id": "653c3899466a66b5",
+        "type": "function",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload.notification",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 740,
-        "y": 1360,
+        "name": "takeNotificationAlmostEmpty",
+        "func": "msg.payload = JSON.stringify(msg.payload.notificationAlmostEmpty);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 1380,
         "wires": [
             [
-                "8499d2a700f15dec",
-                "fb9ed68e7473c223"
+                "0868e6145653f1da"
             ]
         ]
     },
     {
-        "id": "8499d2a700f15dec",
-        "type": "debug",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 1260,
-        "wires": []
-    },
-    {
-        "id": "3b46f7e924fa074f",
-        "type": "mqtt in",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "Capacità dispenser",
-        "topic": "unisa/IoT/gruppo07/almostEmpty",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "efc7c89dfa0e5254",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 230,
-        "y": 1460,
-        "wires": [
-            [
-                "04c4bdd6d491cc20"
-            ]
-        ]
-    },
-    {
-        "id": "56743407cc406ef6",
+        "id": "0837640008553bd0",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
         "position": "dialog",
@@ -944,56 +921,122 @@
         "cancel": "",
         "raw": false,
         "className": "",
-        "topic": "Capacity alert",
-        "name": "Capacity alert",
-        "x": 1100,
-        "y": 1560,
+        "topic": "Capacity Alert",
+        "name": "Capacity Alert",
+        "x": 1120,
+        "y": 1440,
         "wires": [
             []
         ]
     },
     {
-        "id": "04c4bdd6d491cc20",
+        "id": "4964a56aa8c5ca19",
         "type": "switch",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "Check capacity",
+        "name": "Check capacity ",
         "property": "payload.percentage",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "lte",
-                "v": "20",
+                "t": "eq",
+                "v": "0",
                 "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 500,
-        "y": 1560,
+        "x": 520,
+        "y": 1440,
         "wires": [
             [
-                "6c09a6eefa7ca2ae"
+                "083b347829918aa2"
             ]
         ]
     },
     {
-        "id": "6c09a6eefa7ca2ae",
+        "id": "083b347829918aa2",
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "takeNotification",
-        "func": "msg.payload = JSON.stringify(msg.payload.notification);\nreturn msg;",
+        "name": "takeNotificationEmpty",
+        "func": "msg.payload = JSON.stringify(msg.payload.notificationEmpty);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 1560,
+        "x": 820,
+        "y": 1440,
         "wires": [
             [
-                "56743407cc406ef6"
+                "0837640008553bd0"
+            ]
+        ]
+    },
+    {
+        "id": "31d47a1a65719cec",
+        "type": "ui_toast",
+        "z": "c2efbb9d6f4ed7fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Capacity Alert",
+        "name": "Capacity Alert",
+        "x": 1120,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9213bfc54b66564",
+        "type": "switch",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check capacity ",
+        "property": "payload.percentage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "-1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 1500,
+        "wires": [
+            [
+                "4054c49ac75c66a6"
+            ]
+        ]
+    },
+    {
+        "id": "4054c49ac75c66a6",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "takeNotificationError",
+        "func": "msg.payload = JSON.stringify(msg.payload.notificationError);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 1500,
+        "wires": [
+            [
+                "31d47a1a65719cec"
             ]
         ]
     },
