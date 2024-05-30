@@ -199,8 +199,7 @@
         "y": 1260,
         "wires": [
             [
-                "45a5313cb016fabd",
-                "c47c8dc737b987fb"
+                "5cea7edd64fec94e"
             ]
         ]
     },
@@ -251,7 +250,7 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 690,
+        "x": 810,
         "y": 1260,
         "wires": []
     },
@@ -803,23 +802,6 @@
         "wires": []
     },
     {
-        "id": "c47c8dc737b987fb",
-        "type": "debug",
-        "z": "c2efbb9d6f4ed7fd",
-        "name": "Aggiungere notifica in base alla pienezza del dispnser",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.percentage",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 1160,
-        "wires": []
-    },
-    {
         "id": "1fa9168d3a13b777",
         "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
@@ -857,7 +839,7 @@
         "className": "",
         "topic": "Capacity Alert",
         "name": "Capacity Alert",
-        "x": 1120,
+        "x": 1380,
         "y": 1380,
         "wires": [
             []
@@ -880,11 +862,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 520,
+        "x": 440,
         "y": 1380,
         "wires": [
             [
-                "653c3899466a66b5"
+                "0c57daf18adc59f3"
             ]
         ]
     },
@@ -900,7 +882,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
+        "x": 1120,
         "y": 1380,
         "wires": [
             [
@@ -1016,7 +998,8 @@
         "y": 1500,
         "wires": [
             [
-                "4054c49ac75c66a6"
+                "4054c49ac75c66a6",
+                "d810748b97fc3030"
             ]
         ]
     },
@@ -1039,6 +1022,92 @@
                 "31d47a1a65719cec"
             ]
         ]
+    },
+    {
+        "id": "5cea7edd64fec94e",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "correctPercentage",
+        "func": "if(msg.payload.percentage == -1.0)\n    msg.payload.percentage = 0\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1260,
+        "wires": [
+            [
+                "45a5313cb016fabd"
+            ]
+        ]
+    },
+    {
+        "id": "0c57daf18adc59f3",
+        "type": "switch",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check emptiness",
+        "property": "payload.percentage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 650,
+        "y": 1380,
+        "wires": [
+            [
+                "049cd26d1c77efaf"
+            ]
+        ]
+    },
+    {
+        "id": "049cd26d1c77efaf",
+        "type": "switch",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check error",
+        "property": "payload.percentage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "-1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 870,
+        "y": 1380,
+        "wires": [
+            [
+                "653c3899466a66b5"
+            ]
+        ]
+    },
+    {
+        "id": "d810748b97fc3030",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 1560,
+        "wires": []
     },
     {
         "id": "b58dd0fccc7f187b",
