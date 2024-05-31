@@ -19,7 +19,7 @@
         "id": "ff891277f53e0293",
         "type": "ui_tab",
         "name": "Home",
-        "icon": "dashboard",
+        "icon": "looks",
         "disabled": false,
         "hidden": false
     },
@@ -27,66 +27,68 @@
         "id": "f54372b43cdc3c39",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "baseColor": "#a000cc",
+                "baseFont": "Lucida Sans Typewriter,Lucida Console,Monaco,monospace",
                 "edited": true,
                 "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
-                "baseColor": "#097479",
+                "baseColor": "#770bb1",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
                 "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
+                    "default": "#097479",
+                    "value": "#770bb1",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#770bb1",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#a518f1",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#770bb1",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -127,7 +129,7 @@
         "tab": "ff891277f53e0293",
         "order": 1,
         "disp": false,
-        "width": "6",
+        "width": 15,
         "collapse": false,
         "className": ""
     },
@@ -169,7 +171,7 @@
         "tab": "3a8075c535cc3c5c",
         "order": 2,
         "disp": true,
-        "width": "10",
+        "width": 12,
         "collapse": false,
         "className": ""
     },
@@ -177,12 +179,13 @@
         "id": "3a8075c535cc3c5c",
         "type": "ui_tab",
         "name": "data",
-        "icon": "tv",
+        "icon": "show_chart",
         "order": 2,
         "disabled": false,
         "hidden": false
     },
     {
+<<<<<<< HEAD
         "id": "c8578729921ad311",
         "type": "ui_tab",
         "name": "Home1",
@@ -221,6 +224,36 @@
         "width": "6",
         "collapse": false,
         "className": ""
+=======
+        "id": "19f720cdc8a04444",
+        "type": "ui_spacer",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "spacer",
+        "group": "594e2b943ae5f19a",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0e7346850677dddc",
+        "type": "ui_spacer",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "spacer",
+        "group": "594e2b943ae5f19a",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "67003fbce8802820",
+        "type": "ui_spacer",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "spacer",
+        "group": "594e2b943ae5f19a",
+        "order": 6,
+        "width": 1,
+        "height": 1
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
     },
     {
         "id": "5d7b780d1325102e",
@@ -235,8 +268,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 250,
-        "y": 1260,
+        "x": 350,
+        "y": 640,
         "wires": [
             [
                 "5cea7edd64fec94e"
@@ -256,8 +289,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 410,
-        "y": 660,
+        "x": 350,
+        "y": 100,
         "wires": [
             [
                 "4a3e8672b9a992a0",
@@ -272,7 +305,7 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "gage",
@@ -290,8 +323,8 @@
         "seg2": "40",
         "diff": false,
         "className": "",
-        "x": 810,
-        "y": 1260,
+        "x": 910,
+        "y": 640,
         "wires": []
     },
     {
@@ -309,8 +342,8 @@
         "className": "",
         "topic": "Il cane ha pranzato",
         "name": "Il cane ha pranzato",
-        "x": 770,
-        "y": 760,
+        "x": 630,
+        "y": 100,
         "wires": [
             []
         ]
@@ -330,8 +363,8 @@
         "className": "",
         "topic": "Il cane ha cenato",
         "name": "Il cane ha cenato",
-        "x": 1070,
-        "y": 1120,
+        "x": 630,
+        "y": 580,
         "wires": [
             []
         ]
@@ -342,22 +375,22 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 5,
+        "width": 6,
+        "height": 1,
         "passthru": false,
         "label": "Eroga croccantini",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "White",
+        "bgcolor": "Black",
         "className": "",
-        "icon": "",
+        "icon": "touch_app",
         "payload": "true",
         "payloadType": "bool",
         "topic": "unisa/IoT/gruppo07/giveTreat",
         "topicType": "msg",
-        "x": 390,
-        "y": 360,
+        "x": 350,
+        "y": 280,
         "wires": [
             [
                 "93ead14df62a38a8",
@@ -379,8 +412,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
-        "y": 240,
+        "x": 650,
+        "y": 220,
         "wires": []
     },
     {
@@ -397,8 +430,8 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 720,
-        "y": 320,
+        "x": 600,
+        "y": 280,
         "wires": []
     },
     {
@@ -414,8 +447,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 820,
+        "x": 630,
+        "y": 160,
         "wires": []
     },
     {
@@ -431,8 +464,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1070,
-        "y": 1040,
+        "x": 630,
+        "y": 520,
         "wires": []
     },
     {
@@ -442,8 +475,8 @@
         "name": "Food",
         "group": "bcd52fed18f2f30a",
         "order": 1,
-        "width": 10,
-        "height": 14,
+        "width": 12,
+        "height": 9,
         "label": "Chart",
         "chartType": "line",
         "legend": "true",
@@ -473,8 +506,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1550,
-        "y": 580,
+        "x": 1430,
+        "y": 280,
         "wires": [
             []
         ]
@@ -491,8 +524,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 420,
+        "x": 630,
+        "y": 340,
         "wires": [
             [
                 "1685fcc8aef1f7dd",
@@ -519,8 +552,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 860,
-        "y": 500,
+        "x": 1000,
+        "y": 400,
         "wires": [
             [
                 "18a8f41887ee3eb5"
@@ -539,8 +572,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 580,
+        "x": 630,
+        "y": 40,
         "wires": [
             [
                 "8d0f3a222b8e6eae",
@@ -567,8 +600,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1180,
-        "y": 640,
+        "x": 960,
+        "y": 100,
         "wires": [
             [
                 "05938a3b81b82c1c",
@@ -589,8 +622,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1170,
-        "y": 780,
+        "x": 1230,
+        "y": 100,
         "wires": []
     },
     {
@@ -606,8 +639,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 400,
-        "y": 1000,
+        "x": 360,
+        "y": 520,
         "wires": [
             [
                 "3bcb228a63d3304f",
@@ -631,8 +664,8 @@
         "className": "",
         "topic": "Il cane ha mangiato",
         "name": "Croccantini Erogati",
-        "x": 1010,
-        "y": 140,
+        "x": 610,
+        "y": 1020,
         "wires": []
     },
     {
@@ -648,8 +681,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
-        "y": 60,
+        "x": 640,
+        "y": 940,
         "wires": []
     },
     {
@@ -665,8 +698,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 530,
-        "y": 100,
+        "x": 350,
+        "y": 980,
         "wires": [
             [
                 "89963cd571d116eb",
@@ -686,8 +719,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 900,
+        "x": 630,
+        "y": 460,
         "wires": [
             [
                 "314a145e32a6c304",
@@ -708,8 +741,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1450,
-        "y": 900,
+        "x": 1290,
+        "y": 460,
         "wires": []
     },
     {
@@ -731,8 +764,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 900,
+        "x": 920,
+        "y": 460,
         "wires": [
             [
                 "9388d81a84bbf170",
@@ -752,8 +785,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1210,
-        "y": 360,
+        "x": 970,
+        "y": 280,
         "wires": [
             [
                 "c8c9a576a827e46b",
@@ -772,8 +805,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "utf8",
-        "x": 1560,
-        "y": 200,
+        "x": 1160,
+        "y": 240,
         "wires": [
             []
         ]
@@ -791,8 +824,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1210,
-        "y": 260,
+        "x": 1150,
+        "y": 320,
         "wires": []
     },
     {
@@ -801,22 +834,28 @@
         "z": "c2efbb9d6f4ed7fd",
         "name": "",
         "group": "594e2b943ae5f19a",
+<<<<<<< HEAD
         "order": 6,
         "width": 0,
         "height": 0,
+=======
+        "order": 3,
+        "width": 6,
+        "height": 1,
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
         "passthru": false,
         "label": "Reset",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "white",
+        "bgcolor": "red",
         "className": "",
-        "icon": "",
+        "icon": "replay",
         "payload": "true",
         "payloadType": "bool",
         "topic": "topic",
         "topicType": "msg",
-        "x": 110,
-        "y": 860,
+        "x": 930,
+        "y": 980,
         "wires": [
             [
                 "a923faa959c935da"
@@ -837,8 +876,8 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 360,
-        "y": 860,
+        "x": 1180,
+        "y": 980,
         "wires": []
     },
     {
@@ -854,8 +893,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 230,
-        "y": 1440,
+        "x": 350,
+        "y": 780,
         "wires": [
             [
                 "bf62d722cc232cfb",
@@ -880,8 +919,13 @@
         "className": "",
         "topic": "Capacity Alert",
         "name": "Capacity Alert",
+<<<<<<< HEAD
         "x": 1120,
         "y": 1380,
+=======
+        "x": 1560,
+        "y": 720,
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
         "wires": [
             []
         ]
@@ -907,9 +951,15 @@
         ],
         "checkall": "true",
         "repair": false,
+<<<<<<< HEAD
         "outputs": 2,
         "x": 520,
         "y": 1380,
+=======
+        "outputs": 1,
+        "x": 620,
+        "y": 720,
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
         "wires": [
             [
                 "653c3899466a66b5"
@@ -929,8 +979,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
+<<<<<<< HEAD
         "x": 840,
         "y": 1380,
+=======
+        "x": 1300,
+        "y": 720,
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
         "wires": [
             [
                 "0868e6145653f1da"
@@ -952,8 +1007,8 @@
         "className": "",
         "topic": "Capacity Alert",
         "name": "Capacity Alert",
-        "x": 1120,
-        "y": 1440,
+        "x": 1220,
+        "y": 780,
         "wires": [
             []
         ]
@@ -975,8 +1030,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 520,
-        "y": 1440,
+        "x": 620,
+        "y": 780,
         "wires": [
             [
                 "083b347829918aa2"
@@ -995,8 +1050,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 1440,
+        "x": 920,
+        "y": 780,
         "wires": [
             [
                 "0837640008553bd0"
@@ -1018,8 +1073,8 @@
         "className": "",
         "topic": "Capacity Alert",
         "name": "Capacity Alert",
-        "x": 1120,
-        "y": 1500,
+        "x": 1220,
+        "y": 840,
         "wires": [
             []
         ]
@@ -1041,8 +1096,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 520,
-        "y": 1500,
+        "x": 620,
+        "y": 840,
         "wires": [
             [
                 "4054c49ac75c66a6"
@@ -1061,8 +1116,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 820,
-        "y": 1500,
+        "x": 920,
+        "y": 840,
         "wires": [
             [
                 "31d47a1a65719cec"
@@ -1081,8 +1136,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1260,
+        "x": 630,
+        "y": 640,
         "wires": [
             [
                 "45a5313cb016fabd"
@@ -1090,7 +1145,61 @@
         ]
     },
     {
+<<<<<<< HEAD
         "id": "35a98ed97b12ee9c",
+=======
+        "id": "0c57daf18adc59f3",
+        "type": "switch",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check emptiness",
+        "property": "payload.percentage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 720,
+        "wires": [
+            [
+                "049cd26d1c77efaf"
+            ]
+        ]
+    },
+    {
+        "id": "049cd26d1c77efaf",
+        "type": "switch",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "Check error",
+        "property": "payload.percentage",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "-1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1050,
+        "y": 720,
+        "wires": [
+            [
+                "653c3899466a66b5"
+            ]
+        ]
+    },
+    {
+        "id": "d810748b97fc3030",
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
         "type": "debug",
         "z": "c2efbb9d6f4ed7fd",
         "name": "debug 2",
@@ -1101,8 +1210,13 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
+<<<<<<< HEAD
         "x": 520,
         "y": 1580,
+=======
+        "x": 880,
+        "y": 900,
+>>>>>>> 48e0ff3713ec5f2d1584f920ab28cfa093409ef1
         "wires": []
     },
     {
