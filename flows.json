@@ -18,7 +18,7 @@
     {
         "id": "ff891277f53e0293",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "Pienezza dispenser",
         "icon": "looks",
         "disabled": false,
         "hidden": false
@@ -178,7 +178,7 @@
     {
         "id": "3a8075c535cc3c5c",
         "type": "ui_tab",
-        "name": "data",
+        "name": "Grafico pasti",
         "icon": "show_chart",
         "order": 2,
         "disabled": false,
@@ -862,8 +862,7 @@
             [
                 "bf62d722cc232cfb",
                 "4964a56aa8c5ca19",
-                "a9213bfc54b66564",
-                "35a98ed97b12ee9c"
+                "a9213bfc54b66564"
             ]
         ]
     },
@@ -915,8 +914,7 @@
         "wires": [
             [
                 "653c3899466a66b5"
-            ],
-            []
+            ]
         ]
     },
     {
