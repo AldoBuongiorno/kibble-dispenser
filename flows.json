@@ -1165,6 +1165,82 @@
         ]
     },
     {
+        "id": "1357061e6fee6e57",
+        "type": "mqtt in",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/acquireTime",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "efc7c89dfa0e5254",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 1220,
+        "wires": [
+            [
+                "cbf080c6b085af40"
+            ]
+        ]
+    },
+    {
+        "id": "9cc9cae2df5b54e5",
+        "type": "mqtt out",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/takeTime",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "efc7c89dfa0e5254",
+        "x": 880,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "cbf080c6b085af40",
+        "type": "function",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "acquireTime",
+        "func": "if(msg.payload == 'Acquisici'){\n    let date = new Date();\n    msg.payload = date.getHours();\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1220,
+        "wires": [
+            [
+                "9cc9cae2df5b54e5",
+                "f35264e5096c5fb1"
+            ]
+        ]
+    },
+    {
+        "id": "f35264e5096c5fb1",
+        "type": "debug",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 1140,
+        "wires": []
+    },
+    {
         "id": "c971f552744c6c17",
         "type": "mqtt in",
         "z": "0a38d607daa3c654",
