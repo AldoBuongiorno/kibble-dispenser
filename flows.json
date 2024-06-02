@@ -899,11 +899,6 @@
                 "t": "lte",
                 "v": "20",
                 "vt": "num"
-            },
-            {
-                "t": "neq",
-                "v": "0",
-                "vt": "num"
             }
         ],
         "checkall": "true",
