@@ -8,18 +8,11 @@
         "env": []
     },
     {
-        "id": "0a38d607daa3c654",
-        "type": "tab",
-        "label": "Flow 2",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "ff891277f53e0293",
         "type": "ui_tab",
-        "name": "Pienezza dispenser",
+        "name": "Home",
         "icon": "looks",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -178,27 +171,9 @@
     {
         "id": "3a8075c535cc3c5c",
         "type": "ui_tab",
-        "name": "Grafico pasti",
+        "name": "Data",
         "icon": "show_chart",
         "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "c8578729921ad311",
-        "type": "ui_tab",
-        "name": "Home1",
-        "icon": "dashboard",
-        "order": 3,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "23b488a09c6abdc0",
-        "type": "ui_tab",
-        "name": "Data1",
-        "icon": "dashboard",
-        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -206,7 +181,7 @@
         "id": "ea496e20c388a317",
         "type": "ui_group",
         "name": "Capacità1",
-        "tab": "c8578729921ad311",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "6",
@@ -217,12 +192,42 @@
         "id": "817ec23e5ad8fd57",
         "type": "ui_group",
         "name": "Logs1",
-        "tab": "23b488a09c6abdc0",
+        "tab": "",
         "order": 1,
         "disp": true,
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "c63399b3f0aa3666",
+        "type": "ui_spacer",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "spacer",
+        "group": "594e2b943ae5f19a",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a90e4a7574849a9b",
+        "type": "ui_spacer",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "spacer",
+        "group": "594e2b943ae5f19a",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f441a53e3f3cc6af",
+        "type": "ui_spacer",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "spacer",
+        "group": "594e2b943ae5f19a",
+        "order": 6,
+        "width": 1,
+        "height": 1
     },
     {
         "id": "5d7b780d1325102e",
@@ -591,7 +596,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1230,
+        "x": 1210,
         "y": 100,
         "wires": []
     },
@@ -608,7 +613,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 360,
+        "x": 340,
         "y": 520,
         "wires": [
             [
@@ -817,8 +822,8 @@
         "payloadType": "bool",
         "topic": "topic",
         "topicType": "msg",
-        "x": 930,
-        "y": 980,
+        "x": 310,
+        "y": 1100,
         "wires": [
             [
                 "a923faa959c935da"
@@ -839,8 +844,8 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 1180,
-        "y": 980,
+        "x": 640,
+        "y": 1100,
         "wires": []
     },
     {
@@ -860,9 +865,9 @@
         "y": 780,
         "wires": [
             [
-                "bf62d722cc232cfb",
                 "4964a56aa8c5ca19",
-                "a9213bfc54b66564"
+                "a9213bfc54b66564",
+                "049cd26d1c77efaf"
             ]
         ]
     },
@@ -870,11 +875,11 @@
         "id": "0868e6145653f1da",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
-        "position": "dialog",
+        "position": "top right",
         "displayTime": "3",
         "highlight": "",
         "sendall": true,
-        "outputs": 1,
+        "outputs": 0,
         "ok": "OK",
         "cancel": "",
         "raw": false,
@@ -883,9 +888,7 @@
         "name": "Capacity Alert",
         "x": 1560,
         "y": 720,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "bf62d722cc232cfb",
@@ -904,11 +907,11 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 620,
+        "x": 820,
         "y": 720,
         "wires": [
             [
-                "653c3899466a66b5"
+                "0c57daf18adc59f3"
             ]
         ]
     },
@@ -917,7 +920,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "takeNotificationAlmostEmpty",
-        "func": "msg.payload = JSON.stringify(msg.payload.notificationAlmostEmpty);\nreturn msg;",
+        "func": "let string = JSON.stringify(msg.payload.notificationAlmostEmpty);\nmsg.payload = string.replace(/\"/g, '');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -936,11 +939,11 @@
         "id": "0837640008553bd0",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
-        "position": "dialog",
+        "position": "top right",
         "displayTime": "3",
         "highlight": "",
         "sendall": true,
-        "outputs": 1,
+        "outputs": 0,
         "ok": "OK",
         "cancel": "",
         "raw": false,
@@ -949,9 +952,7 @@
         "name": "Capacity Alert",
         "x": 1220,
         "y": 780,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "4964a56aa8c5ca19",
@@ -983,7 +984,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "takeNotificationEmpty",
-        "func": "msg.payload = JSON.stringify(msg.payload.notificationEmpty);\nreturn msg;",
+        "func": "let string = JSON.stringify(msg.payload.notificationEmpty);\nmsg.payload = string.replace(/\"/g, '');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1002,11 +1003,11 @@
         "id": "31d47a1a65719cec",
         "type": "ui_toast",
         "z": "c2efbb9d6f4ed7fd",
-        "position": "dialog",
+        "position": "top right",
         "displayTime": "3",
         "highlight": "",
         "sendall": true,
-        "outputs": 1,
+        "outputs": 0,
         "ok": "OK",
         "cancel": "",
         "raw": false,
@@ -1015,9 +1016,7 @@
         "name": "Capacity Alert",
         "x": 1220,
         "y": 840,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "a9213bfc54b66564",
@@ -1049,7 +1048,7 @@
         "type": "function",
         "z": "c2efbb9d6f4ed7fd",
         "name": "takeNotificationError",
-        "func": "msg.payload = JSON.stringify(msg.payload.notificationError);\nreturn msg;",
+        "func": "let string = JSON.stringify(msg.payload.notificationError);\nmsg.payload = string.replace(/\"/g, '');\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1095,17 +1094,17 @@
             {
                 "t": "neq",
                 "v": "0",
-                "vt": "str"
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 830,
+        "x": 1030,
         "y": 720,
         "wires": [
             [
-                "049cd26d1c77efaf"
+                "653c3899466a66b5"
             ]
         ]
     },
@@ -1120,42 +1119,26 @@
             {
                 "t": "neq",
                 "v": "-1",
-                "vt": "str"
+                "vt": "num"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1050,
+        "x": 610,
         "y": 720,
         "wires": [
             [
-                "653c3899466a66b5"
+                "bf62d722cc232cfb"
             ]
         ]
     },
     {
-        "id": "d810748b97fc3030",
-        "type": "debug",
+        "id": "1357061e6fee6e57",
+        "type": "mqtt in",
         "z": "c2efbb9d6f4ed7fd",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "c971f552744c6c17",
-        "type": "mqtt in",
-        "z": "0a38d607daa3c654",
-        "name": "Capacità dispenser",
-        "topic": "unisa/IoT/gruppo07/pienezza_dispenser1",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/acquireTime",
         "qos": "1",
         "datatype": "auto-detect",
         "broker": "efc7c89dfa0e5254",
@@ -1163,160 +1146,20 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 1810,
-        "y": 1440,
+        "x": 390,
+        "y": 1220,
         "wires": [
             [
-                "e3e0260b662d9fd8"
+                "cbf080c6b085af40"
             ]
         ]
     },
     {
-        "id": "d99277efdc2356f0",
-        "type": "mqtt in",
-        "z": "0a38d607daa3c654",
-        "name": "Il cane ha pranzato",
-        "topic": "unisa/IoT/gruppo07/giveTreatAutoLaunch1",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "efc7c89dfa0e5254",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1970,
-        "y": 840,
-        "wires": [
-            [
-                "e703514626c8f562",
-                "244bb0ec5e216f6d",
-                "cc7e27e15aba07bd"
-            ]
-        ]
-    },
-    {
-        "id": "97a6b5edcb85af8b",
-        "type": "ui_gauge",
-        "z": "0a38d607daa3c654",
-        "name": "",
-        "group": "ea496e20c388a317",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Percentuale di pienezza del dispeser",
-        "label": "%",
-        "format": "{{msg.payload.percentage}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#ff0000",
-            "#fff700",
-            "#4dff00"
-        ],
-        "seg1": "20",
-        "seg2": "40",
-        "diff": false,
-        "className": "",
-        "x": 2370,
-        "y": 1440,
-        "wires": []
-    },
-    {
-        "id": "244bb0ec5e216f6d",
-        "type": "ui_toast",
-        "z": "0a38d607daa3c654",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "className": "",
-        "topic": "Il cane ha pranzato",
-        "name": "Il cane ha pranzato",
-        "x": 2330,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "70aa341eaab63ab2",
-        "type": "ui_toast",
-        "z": "0a38d607daa3c654",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "className": "",
-        "topic": "Il cane ha cenato",
-        "name": "Il cane ha cenato",
-        "x": 2630,
-        "y": 1300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "93a00dfd2a2fc022",
-        "type": "ui_button",
-        "z": "0a38d607daa3c654",
-        "name": "",
-        "group": "ea496e20c388a317",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Eroga croccantini",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "topic": "unisa/IoT/gruppo07/giveTreat",
-        "topicType": "msg",
-        "x": 1950,
-        "y": 540,
-        "wires": [
-            [
-                "36fb78b547f8c301",
-                "39afbe615f1317a4",
-                "ef837ef882e03d65"
-            ]
-        ]
-    },
-    {
-        "id": "36fb78b547f8c301",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Debug Give Croccantini",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2310,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "39afbe615f1317a4",
+        "id": "9cc9cae2df5b54e5",
         "type": "mqtt out",
-        "z": "0a38d607daa3c654",
-        "name": "Manuale",
-        "topic": "unisa/IoT/gruppo07/giveTreat1",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "",
+        "topic": "unisa/IoT/gruppo07/takeTime",
         "qos": "1",
         "retain": "",
         "respTopic": "",
@@ -1325,712 +1168,28 @@
         "correl": "",
         "expiry": "",
         "broker": "efc7c89dfa0e5254",
-        "x": 2280,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "cc7e27e15aba07bd",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Pet Nearby Lunch",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2290,
-        "y": 1000,
-        "wires": []
-    },
-    {
-        "id": "863c0ae0a7d8765c",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Pet Nearby Dinner",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2630,
+        "x": 880,
         "y": 1220,
         "wires": []
     },
     {
-        "id": "8ec2693f49890303",
-        "type": "ui_chart",
-        "z": "0a38d607daa3c654",
-        "name": "Food",
-        "group": "817ec23e5ad8fd57",
-        "order": 1,
-        "width": 10,
-        "height": 14,
-        "label": "Chart",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "D/M",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": true,
-        "ymin": "0",
-        "ymax": "24",
-        "removeOlder": "1",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "604800",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#8b20ee",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 3110,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ef837ef882e03d65",
+        "id": "cbf080c6b085af40",
         "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDate();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Manuale\"\n    return msg;\n}\n",
+        "z": "c2efbb9d6f4ed7fd",
+        "name": "acquireTime",
+        "func": "if(msg.payload == 'Acquisici'){\n    let date = new Date();\n    msg.payload = date.getHours();\n    return msg;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 2210,
-        "y": 600,
+        "x": 650,
+        "y": 1220,
         "wires": [
             [
-                "5d6c55e7168fa2ee",
-                "49b8afea83d732b0"
+                "9cc9cae2df5b54e5"
             ]
         ]
-    },
-    {
-        "id": "5d6c55e7168fa2ee",
-        "type": "change",
-        "z": "0a38d607daa3c654",
-        "name": "Acquire hours",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.ora",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2420,
-        "y": 680,
-        "wires": [
-            [
-                "8ec2693f49890303"
-            ]
-        ]
-    },
-    {
-        "id": "e703514626c8f562",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "Acquire datetime",
-        "func": "if(typeof(msg.payload) === 'string'){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDate();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Pranzo automatico\"\n    return msg;\n}\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2350,
-        "y": 760,
-        "wires": [
-            [
-                "3c35d0b8fb07260e",
-                "49b8afea83d732b0"
-            ]
-        ]
-    },
-    {
-        "id": "3c35d0b8fb07260e",
-        "type": "change",
-        "z": "0a38d607daa3c654",
-        "name": "Acquire hours",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.ora",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2740,
-        "y": 820,
-        "wires": [
-            [
-                "47c6c52eaa0d370a",
-                "8ec2693f49890303"
-            ]
-        ]
-    },
-    {
-        "id": "47c6c52eaa0d370a",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Check data",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2730,
-        "y": 960,
-        "wires": []
-    },
-    {
-        "id": "e9dd8661e5b4f5a6",
-        "type": "mqtt in",
-        "z": "0a38d607daa3c654",
-        "name": "Il cane ha cenato",
-        "topic": "unisa/IoT/gruppo07/giveTreatAutoDinner1",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "efc7c89dfa0e5254",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1960,
-        "y": 1180,
-        "wires": [
-            [
-                "863c0ae0a7d8765c",
-                "70aa341eaab63ab2",
-                "bfd6242b102607fa"
-            ]
-        ]
-    },
-    {
-        "id": "9f8ba1d03235bb6f",
-        "type": "ui_toast",
-        "z": "0a38d607daa3c654",
-        "position": "top right",
-        "displayTime": "5",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 0,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "className": "",
-        "topic": "Il cane ha mangiato",
-        "name": "Croccantini Erogati",
-        "x": 2570,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "4ece5d822ed93523",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Notifica Croccantini Erogati ",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2580,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "83bfd39fbf88dc95",
-        "type": "mqtt in",
-        "z": "0a38d607daa3c654",
-        "name": "Croccantini Erogati",
-        "topic": "unisa/IoT/gruppo07/treatGiven1",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "efc7c89dfa0e5254",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 2090,
-        "y": 280,
-        "wires": [
-            [
-                "4ece5d822ed93523",
-                "9f8ba1d03235bb6f"
-            ]
-        ]
-    },
-    {
-        "id": "bfd6242b102607fa",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "Acquire datetime",
-        "func": "if(msg.payload){\n    let date = new Date();\n    let ora = date.getHours();\n    let minuti = date.getMinutes();\n    let giorno = date.getDate();\n    let mese = date.getMonth()+1;\n    let json = {\n        \"giorno\": giorno,\n        \"mese\" : mese,\n        \"ora\": ora,\n        \"minuti\": minuti\n    }\n    msg.payload = JSON.stringify(json);\n    msg.payload = json;\n    msg.topic = \"Cena automatico\"\n    return msg;\n}\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2350,
-        "y": 1080,
-        "wires": [
-            [
-                "3ca15f44fadcbc91",
-                "49b8afea83d732b0"
-            ]
-        ]
-    },
-    {
-        "id": "805c3a058aa95c6e",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Check data",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 3010,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "3ca15f44fadcbc91",
-        "type": "change",
-        "z": "0a38d607daa3c654",
-        "name": "Acquire hours",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.ora",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2640,
-        "y": 1080,
-        "wires": [
-            [
-                "805c3a058aa95c6e",
-                "8ec2693f49890303"
-            ]
-        ]
-    },
-    {
-        "id": "49b8afea83d732b0",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "Traduzione",
-        "func": "let infos = msg.payload;\nlet topic = msg.topic;\nvar string_infos = 'Tipo:' + topic + ',' + 'Giorno:' \n+ infos.giorno + ',' + 'Mese:' + infos.mese + ','\n+ 'Ora:' + infos.ora + ',' + 'Minuti:' + infos.minuti + \";\";\nreturn { payload: string_infos };",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2770,
-        "y": 540,
-        "wires": [
-            [
-                "6954abc505a205fa",
-                "c9a796adccac4fd3"
-            ]
-        ]
-    },
-    {
-        "id": "c9a796adccac4fd3",
-        "type": "file",
-        "z": "0a38d607daa3c654",
-        "name": "",
-        "filename": "/data/prova.csv",
-        "filenameType": "str",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "utf8",
-        "x": 3120,
-        "y": 380,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6954abc505a205fa",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "Check data",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2770,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "c14d7a6893e68d14",
-        "type": "ui_button",
-        "z": "0a38d607daa3c654",
-        "name": "",
-        "group": "ea496e20c388a317",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Reset",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "true",
-        "payloadType": "bool",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 1670,
-        "y": 1040,
-        "wires": [
-            [
-                "0350f491ec658cd3"
-            ]
-        ]
-    },
-    {
-        "id": "0350f491ec658cd3",
-        "type": "mqtt out",
-        "z": "0a38d607daa3c654",
-        "name": "Restart",
-        "topic": "unisa/IoT/gruppo07/reset1",
-        "qos": "1",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "efc7c89dfa0e5254",
-        "x": 1920,
-        "y": 1040,
-        "wires": []
-    },
-    {
-        "id": "36ea0a72bc1bf12e",
-        "type": "mqtt in",
-        "z": "0a38d607daa3c654",
-        "name": "Capacità dispenser",
-        "topic": "unisa/IoT/gruppo07/almostEmpty1",
-        "qos": "1",
-        "datatype": "auto-detect",
-        "broker": "efc7c89dfa0e5254",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 1790,
-        "y": 1620,
-        "wires": [
-            [
-                "8d18d84981739de0",
-                "2d532e48390db18e",
-                "42b4a4bac0f9e50a",
-                "a02cfacbfec2d526"
-            ]
-        ]
-    },
-    {
-        "id": "99477c3a3f823815",
-        "type": "ui_toast",
-        "z": "0a38d607daa3c654",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "className": "",
-        "topic": "Capacity Alert",
-        "name": "Capacity Alert",
-        "x": 2680,
-        "y": 1560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8d18d84981739de0",
-        "type": "switch",
-        "z": "0a38d607daa3c654",
-        "name": "Check capacity",
-        "property": "payload.percentage",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lte",
-                "v": "20",
-                "vt": "num"
-            },
-            {
-                "t": "neq",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 2080,
-        "y": 1560,
-        "wires": [
-            [
-                "9e61906c11aad6cf"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "9e61906c11aad6cf",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "takeNotificationAlmostEmpty",
-        "func": "msg.payload = JSON.stringify(msg.payload.notificationAlmostEmpty);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2400,
-        "y": 1560,
-        "wires": [
-            [
-                "99477c3a3f823815"
-            ]
-        ]
-    },
-    {
-        "id": "262491c3a8bca05c",
-        "type": "ui_toast",
-        "z": "0a38d607daa3c654",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "className": "",
-        "topic": "Capacity Alert",
-        "name": "Capacity Alert",
-        "x": 2680,
-        "y": 1620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2d532e48390db18e",
-        "type": "switch",
-        "z": "0a38d607daa3c654",
-        "name": "Check capacity ",
-        "property": "payload.percentage",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "0",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 2080,
-        "y": 1620,
-        "wires": [
-            [
-                "076bc212341dde21"
-            ]
-        ]
-    },
-    {
-        "id": "076bc212341dde21",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "takeNotificationEmpty",
-        "func": "msg.payload = JSON.stringify(msg.payload.notificationEmpty);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2380,
-        "y": 1620,
-        "wires": [
-            [
-                "262491c3a8bca05c"
-            ]
-        ]
-    },
-    {
-        "id": "bc69467c2950d297",
-        "type": "ui_toast",
-        "z": "0a38d607daa3c654",
-        "position": "dialog",
-        "displayTime": "3",
-        "highlight": "",
-        "sendall": true,
-        "outputs": 1,
-        "ok": "OK",
-        "cancel": "",
-        "raw": false,
-        "className": "",
-        "topic": "Capacity Alert",
-        "name": "Capacity Alert",
-        "x": 2680,
-        "y": 1680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "42b4a4bac0f9e50a",
-        "type": "switch",
-        "z": "0a38d607daa3c654",
-        "name": "Check capacity ",
-        "property": "payload.percentage",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "-1",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 2080,
-        "y": 1680,
-        "wires": [
-            [
-                "6dab6bf060de893c"
-            ]
-        ]
-    },
-    {
-        "id": "6dab6bf060de893c",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "takeNotificationError",
-        "func": "msg.payload = JSON.stringify(msg.payload.notificationError);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2380,
-        "y": 1680,
-        "wires": [
-            [
-                "bc69467c2950d297"
-            ]
-        ]
-    },
-    {
-        "id": "e3e0260b662d9fd8",
-        "type": "function",
-        "z": "0a38d607daa3c654",
-        "name": "correctPercentage",
-        "func": "if(msg.payload.percentage == -1.0)\n    msg.payload.percentage = 0\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 2090,
-        "y": 1440,
-        "wires": [
-            [
-                "97a6b5edcb85af8b"
-            ]
-        ]
-    },
-    {
-        "id": "a02cfacbfec2d526",
-        "type": "debug",
-        "z": "0a38d607daa3c654",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2080,
-        "y": 1760,
-        "wires": []
     }
 ]
